@@ -12,6 +12,7 @@ namespace Kontur.Sokoban.Game
         private Dictionary<IBlock, Vec> BlocksToPos;
         public IEnumerable<KeyValuePair<IBlock, Vec>> GetBlocksToPos => BlocksToPos;
         private IBlock Player => BlocksToPos.Where(b => b.Key is Player).First().Key;
+        public Vec PlayerPos => BlocksToPos[Player];
         public int Width { get; private set; }
         public int Height { get; private set; }
         public int Moves { get; private set; }

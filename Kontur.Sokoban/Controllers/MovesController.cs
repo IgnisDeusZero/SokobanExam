@@ -17,7 +17,7 @@ namespace Kontur.Sokoban.Controllers
                 return new BadRequestObjectResult("game id is bad");
             }
             var game = GamesRepo.Instance.GetGame(gameId);
-            var dir = InputParser.GetDirection(userInput, new Vec(game.Width, game.Height));
+            var dir = InputParser.GetDirection(userInput, game);
             if (dir is Game.Direction direction)
             {
                 game.Move(direction);

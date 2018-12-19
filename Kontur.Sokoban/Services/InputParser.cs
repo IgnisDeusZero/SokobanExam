@@ -9,14 +9,7 @@ namespace Kontur.Sokoban.Services
 {
     public static class InputParser
     {
-        private static Direction?[,] PartsToDirection = new Direction?[,]
-        {
-            {null, Direction.Up, null },
-            {Direction.Left, null, Direction.Right },
-            {null, Direction.Down, null }
-        };
-
-        public static Direction? GetDirection(UserInputForMovesPost userInput, Vec levelSize)
+        public static Direction? GetDirection(UserInputForMovesPost userInput, SokobanField game)
         {
             if (!IsCorrectInput(userInput))
                 return null;
@@ -38,25 +31,42 @@ namespace Kontur.Sokoban.Services
             }
             else
             {
-                return ParseClick(userInput, levelSize);
+                return ParseClick(userInput, game);
             }
         }
 
-        private static Direction? ParseClick(UserInputForMovesPost userInput, Vec levelSize)
+        private static Direction? ParseClick(UserInputForMovesPost userInput, SokobanField game)
         {
-            int partByWidth = userInput.ClickedPos.X < levelSize.X / 3
-                ? 0
-                : userInput.ClickedPos.X < 2 * levelSize.X / 3
-                    ? 1
-                    : 2;
-
-            int partByHeight = userInput.ClickedPos.Y < levelSize.Y / 3
-                ? 0
-                : userInput.ClickedPos.Y < 2 * levelSize.Y / 3
-                    ? 1
-                    : 2;
-            return PartsToDirection[partByHeight, partByWidth];
-
+            var playerPos = game.PlayerPos;
+            var clickedPos = userInput.ClickedPos;
+            // Swicth playerPos.Y and clickedPos.Y because (0,0) in upper left corner
+            var playerToClickVec = new Vec(clickedPos.X - playerPos.X, playerPos.Y - clickedPos.Y);
+            if (playerToClickVec.X == 0 && playerToClickVec.Y == 0)
+            {
+                return null;
+            }
+            var radian = Math.Atan2(playerToClickVec.Y, playerToClickVec.X);
+            radian += radian < 0 ? 2 * Math.PI : 0;
+            if (radian < Math.PI / 4)
+            {
+                return Direction.Right;
+            }
+            else if (radian < 3 * Math.PI / 4)
+            {
+                return Direction.Up;
+            }
+            else if (radian < 5 * Math.PI / 4)
+            {
+                return Direction.Left;
+            }
+            else if (radian < 7 * Math.PI / 4)
+            {
+                return Direction.Down;
+            }
+            else
+            {
+                return Direction.Right;
+            }
 
         }
 
