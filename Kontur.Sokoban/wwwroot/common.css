@@ -26,17 +26,17 @@
     width: 100%;
 }
 
-.field td {
-    border: 0;
-    padding: 0px;
-}
-
-        
-    .field td:after {
-        content: ' ';
-        display: block;
-        margin-top: 100%;
+    .field td {
+        border: 0;
+        padding: 0px;
     }
+
+
+        .field td:after {
+            content: ' ';
+            display: block;
+            margin-top: 100%;
+        }
 
 .animated {
     transition: all 0.3s ease-out, z-index 0s ease;
@@ -74,6 +74,7 @@
     margin: 20px auto;
     width: 200px;
 }
+
 .startButton {
     height: 25px;
     width: 100%;
@@ -82,6 +83,16 @@
 
 .hidden {
     display: none;
+}
+
+.decription {
+    font-size: 20px;
+    color: wheat;
+}
+
+.startMessage {
+    font-size: 45px;
+    color: wheat;
 }
 
 
@@ -103,5 +114,4 @@
 .goal {
     background-color: rgba(255, 242, 0, 0.46);
     border-radius: 50%;
-    
 }

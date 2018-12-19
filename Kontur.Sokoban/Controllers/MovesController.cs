@@ -12,14 +12,18 @@ namespace Kontur.Sokoban.Controllers
         [HttpPost]
         public IActionResult Moves(Guid gameId, [FromBody]UserInputForMovesPost userInput)
         {
-            var dir = InputParser.GetDirection(userInput);
+            if (!GamesRepo.Instance.ContainsGame(gameId))
+            {
+                return new BadRequestObjectResult("game id is bad");
+            }
             var game = GamesRepo.Instance.GetGame(gameId);
+            var dir = InputParser.GetDirection(userInput, new Vec(game.Width, game.Height));
             if (dir is Game.Direction direction)
             {
                 game.Move(direction);
             }
             var gameDto = new GameDto(GameDtoBuilder.BuildCells(game).ToArray(),
-                true, false,
+                true, true,
                 game.Width, game.Height,
                 gameId,
                 game.IsGameFinished,

@@ -21,6 +21,11 @@ namespace Kontur.Sokoban.Services
             Instance = new GamesRepo();
         }
 
+        public bool ContainsGame(Guid id)
+        {
+            return gamesCollection.ContainsKey(id);
+        }
+
         public SokobanField NewGame(Guid id, string level)
         {
             var game = new SokobanField(LevelRepo.Instance.GetLevel(level));

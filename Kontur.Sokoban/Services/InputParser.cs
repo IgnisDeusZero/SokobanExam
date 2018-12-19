@@ -9,11 +9,18 @@ namespace Kontur.Sokoban.Services
 {
     public static class InputParser
     {
-        public static Direction? GetDirection(UserInputForMovesPost userInput)
+        private static Direction?[,] PartsToDirection = new Direction?[,]
+        {
+            {null, Direction.Up, null },
+            {Direction.Left, null, Direction.Right },
+            {null, Direction.Down, null }
+        };
+
+        public static Direction? GetDirection(UserInputForMovesPost userInput, Vec levelSize)
         {
             if (!IsCorrectInput(userInput))
                 return null;
-            if (userInput.KeyPressed != default(char))
+            if (userInput.ClickedPos == null)
             {
                 switch ((int)userInput.KeyPressed)
                 {
@@ -25,15 +32,40 @@ namespace Kontur.Sokoban.Services
                         return Direction.Up;
                     case 40:
                         return Direction.Down;
+                    default:
+                        return null;
                 }
             }
-            return null;
+            else
+            {
+                return ParseClick(userInput, levelSize);
+            }
+        }
+
+        private static Direction? ParseClick(UserInputForMovesPost userInput, Vec levelSize)
+        {
+            int partByWidth = userInput.ClickedPos.X < levelSize.X / 3
+                ? 0
+                : userInput.ClickedPos.X < 2 * levelSize.X / 3
+                    ? 1
+                    : 2;
+
+            int partByHeight = userInput.ClickedPos.Y < levelSize.Y / 3
+                ? 0
+                : userInput.ClickedPos.Y < 2 * levelSize.Y / 3
+                    ? 1
+                    : 2;
+            return PartsToDirection[partByHeight, partByWidth];
+
+
         }
 
         private static bool IsCorrectInput(UserInputForMovesPost userInput)
         {
-            return userInput.ClickedPos == null
-                    && (userInput.KeyPressed >= 37 || userInput.KeyPressed <= 40);
+            var isKeyboardInput = (userInput.KeyPressed >= 37 || userInput.KeyPressed <= 40)
+                    && userInput.ClickedPos == null;
+            var isClickInput = userInput.ClickedPos != null;
+            return isKeyboardInput || isClickInput;
         }
 
     }

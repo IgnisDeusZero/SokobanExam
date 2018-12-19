@@ -20,7 +20,7 @@ namespace Kontur.Sokoban.Controllers
             var game = GamesRepo.Instance.NewGame(gameId, level.Name);
             GameDto dto = new GameDto(
                 GameDtoBuilder.BuildCells(game).ToArray(),
-                true, false,
+                true, true,
                 game.Width, game.Height, 
                 gameId, 
                 false, 
