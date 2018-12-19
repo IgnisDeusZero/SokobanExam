@@ -1,0 +1,237 @@
+﻿{
+  "Name": "1 Level",
+  "Objects": [
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 0,
+        "Y": 0
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 0,
+        "Y": 1
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 0,
+        "Y": 2
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 0,
+        "Y": 3
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 0,
+        "Y": 4
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 0,
+        "Y": 5
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 0,
+        "Y": 6
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 1,
+        "Y": 0
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 1,
+        "Y": 6
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 2,
+        "Y": 0
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 2,
+        "Y": 6
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 3,
+        "Y": 0
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 3,
+        "Y": 6
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 4,
+        "Y": 0
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 4,
+        "Y": 6
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 5,
+        "Y": 0
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 5,
+        "Y": 6
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 6,
+        "Y": 0
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 6,
+        "Y": 1
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 6,
+        "Y": 2
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 6,
+        "Y": 3
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 6,
+        "Y": 4
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 6,
+        "Y": 5
+      }
+    },
+    {
+      "Name": "Brick",
+      "Pos": {
+        "X": 6,
+        "Y": 6
+      }
+    },
+    {
+      "Name": "Player",
+      "Pos": {
+        "X": 3,
+        "Y": 3
+      }
+    },
+
+    {
+      "Name": "BoxGoal",
+      "Pos": {
+        "X": 1,
+        "Y": 1
+      }
+    },
+    {
+      "Name": "BoxGoal",
+      "Pos": {
+        "X": 1,
+        "Y": 5
+      }
+    },
+    {
+      "Name": "BoxGoal",
+      "Pos": {
+        "X": 5,
+        "Y": 1
+      }
+    },
+    {
+      "Name": "BoxGoal",
+      "Pos": {
+        "X": 5,
+        "Y": 5
+      }
+    },
+    {
+      "Name": "Box",
+      "Pos": {
+        "X": 3,
+        "Y": 2
+      }
+    },
+    {
+      "Name": "Box",
+      "Pos": {
+        "X": 3,
+        "Y": 4
+      }
+    },
+    {
+      "Name": "Box",
+      "Pos": {
+        "X": 2,
+        "Y": 3
+      }
+    },
+    {
+      "Name": "Box",
+      "Pos": {
+        "X": 4,
+        "Y": 3
+      }
+    }
+  ]
+}
